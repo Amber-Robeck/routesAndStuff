@@ -7,6 +7,11 @@ const getNotes = (req, res) => {
 // /api/notes endpoint
 // posting new note
 const postNotes = (req, res) => {
+    console.log(req.body)
+    if (!req.body.title) {
+        res.status(400)
+        throw new Error('Please add a title')
+    }
     res.status(200).json({ message: 'Post notes' })
 }
 
